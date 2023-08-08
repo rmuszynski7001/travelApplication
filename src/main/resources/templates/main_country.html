@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+</head>
+<body>
+<p><span th:text="${name}"></span></p>
+<div>
+    <a th:href="@{/api/country/add}">
+        <button >Submit a country</button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/api/country/delete}">
+        <button>Delete a country</button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/country/all}">
+        <button>View all countries</button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Continents</title>
+</head>
+<body>
+<p>Main menu <span th:text="${name}"></span></p>
+<div class="container">
+  <h3>List of continents</h3>
+<hr/>
+  <table class="table table-bordered table-striped" id="continentsTable">
+
+    <thread>
+      <tr>
+      <th>Name</th>
+        <th>Id</th>
+      </tr>
+    </thread>
+    <tbody>
+    <tr th:each="continent: ${continents}">
+    <td th:text="${continent.getContinentName()}" />
+    <td th:text="${continent.getContinentId()}" />
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
