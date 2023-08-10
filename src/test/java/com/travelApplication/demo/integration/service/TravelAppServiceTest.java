@@ -2,7 +2,6 @@ package com.travelApplication.demo.integration.service;
 
 
 import com.travelApplication.demo.entity.Continent;
-import com.travelApplication.demo.enums.ContinentName;
 import com.travelApplication.demo.service.ContinentService;
 import org.junit.jupiter.api.AfterEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +47,6 @@ public class TravelAppServiceTest {
 
         Continent continent = jdbcTemplate.queryForObject(sql, rowMapper);
 
-        assertEquals("SampleContinent",continent.getContinentName());
+        assertEquals("SampleContinent",continent.getName());
     }
 }

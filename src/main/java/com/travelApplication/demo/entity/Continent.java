@@ -3,7 +3,9 @@ package com.travelApplication.demo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.travelApplication.demo.enums.ContinentName;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -13,15 +15,15 @@ import java.util.Set;
 @Setter
 @Entity
 @Table
+@AllArgsConstructor
+@NoArgsConstructor
 public class Continent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="continent_id")
-    private Long continentId;
+    private Long id;
 
-    @Column(name="continent_name")
-    private String continentName;
+    private String name;
 
     @JsonIgnore
     @OneToMany(mappedBy = "continent",
@@ -29,15 +31,5 @@ public class Continent {
     )
     private Set<Country> countries = new HashSet<>();
 
-    public Continent(Long id, String continentName) {
-        this.continentId = id;
-        this.continentName = continentName;
-    }
 
-    public Continent(ContinentName String) {
-        this.continentName = continentName;
-    }
-
-    public Continent() {
-    }
 }

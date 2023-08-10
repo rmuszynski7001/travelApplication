@@ -2,7 +2,9 @@ package com.travelApplication.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -12,15 +14,15 @@ import java.util.Set;
 @Setter
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="country_id")
     private Long id;
 
-    @Column(name="country_name")
-    private String countryName;
+    private String name;
 /*
     @Column(name="continent_id")
     private Long continentId;
@@ -28,7 +30,7 @@ public class Country {
  */
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="continent_id") // referencedColumnName = "continent_id")
+    @JoinColumn(name="continent_id")
     private Continent continent;
 
     @JsonIgnore
@@ -37,11 +39,9 @@ public class Country {
     )
     private Set<City> cities = new HashSet<>();
 
-    public Country(String countryName, Continent continent) {
-        this.countryName = countryName;
+    public Country(String name, Continent continent, Set<City> cities) {
+        this.name = name;
         this.continent = continent;
-    }
-
-    public Country() {
+        this.cities = cities;
     }
 }

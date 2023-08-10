@@ -1,32 +1,31 @@
 package com.travelApplication.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class Hotel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="hotel_id")
     private Long id;
 
-    @Column(name="hotel_name")
-    private String hotelName;
+    private String name;
 
-    @Column(name="hotel_standard")
-    private int hotelStandard;
+    private int standard;
 
-    @Column(name="hotel_info")
-    private String hotelInfo;
+    private String info;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="city_id")
     private City city;
 
-    public Hotel() {
-    }
 }

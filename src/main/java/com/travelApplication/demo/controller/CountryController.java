@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -24,9 +25,10 @@ public class CountryController {
 
     //main menu
     @GetMapping
-    public String mainMenu(Model model) {
-        model.addAttribute("name", "Countries page");
-        return "main_country";
+    public ModelAndView getAllContinents(){
+        ModelAndView mav = new ModelAndView("country_list");
+        mav.addObject("countries",countryService.getCountries());
+        return mav;
     }
 
     @GetMapping("/add")

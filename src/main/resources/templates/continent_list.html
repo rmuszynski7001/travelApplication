@@ -4,9 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Continents</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
 <body>
-<p>Main menu <span th:text="${name}"></span></p>
+
 <div class="container">
   <h3>List of continents</h3>
 <hr/>
@@ -20,8 +24,8 @@
     </thread>
     <tbody>
     <tr th:each="continent: ${continents}">
-    <td th:text="${continent.getContinentName()}" />
-    <td th:text="${continent.getContinentId()}" />
+    <td th:text="${continent.getName()}" />
+    <td th:text="${continent.getId()}" />
     </tr>
     </tbody>
   </table>

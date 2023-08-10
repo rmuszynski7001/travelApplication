@@ -2,7 +2,9 @@ package com.travelApplication.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -12,15 +14,16 @@ import java.util.Set;
 @Setter
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class  City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="city_id")
     private Long id;
 
-    @Column(name="city_name")
-    private String cityName;
+    @Column(name="name")
+    private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="country_id")
@@ -33,7 +36,4 @@ public class  City {
     private Set<Hotel> hotels = new HashSet<>();
 
 
-
-    public City() {
-    }
 }

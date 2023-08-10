@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/continent")
+
 public class ContinentController {
 
     private final Logger logger = LoggerFactory.getLogger(ContinentController.class);
-
 
     @Autowired
     private final ContinentService continentService;
@@ -22,21 +21,21 @@ public class ContinentController {
         this.continentService = continentService;
     }
 
-/*
+
     @GetMapping("/api/continent")
     public ModelAndView getAllContinents(){
-        ModelAndView mav = new ModelAndView("continent");
+        ModelAndView mav = new ModelAndView("continent_list");
         mav.addObject("continents",continentService.getContinents());
         return mav;
     }
-*/
 
 
+/*
     @GetMapping
     public String continentMenu(){
         return "continent";
     }
-/*
+
     @GetMapping
     public List<Continent> getContinents(){
         return continentService.getContinents();
